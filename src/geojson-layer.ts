@@ -161,7 +161,7 @@ export class GeoJSONLayer extends React.Component<Props> {
       ...layerOptions
     };
 
-    map.addLayer(layer, before);
+    map.addLayer(layer as MapboxGL.AnyLayer, before);
 
     this.mapLayerMouseHandlers(type);
   };
@@ -213,7 +213,7 @@ export class GeoJSONLayer extends React.Component<Props> {
 
       if (layers) {
         layers
-          .filter(layer => layer.source === this.id)
+          .filter(layer => (layer as MapboxGL.Layer).source === this.id)
           .forEach(layer => map.removeLayer(layer.id));
       }
 

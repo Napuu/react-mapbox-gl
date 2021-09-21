@@ -224,7 +224,7 @@ export default class Layer extends React.Component<Props> {
     }
 
     if (!map.getLayer(id)) {
-      map.addLayer(layer, before);
+      map.addLayer(layer as MapboxGL.AnyLayer, before);
     }
 
     (Object.entries(eventToHandler) as Array<

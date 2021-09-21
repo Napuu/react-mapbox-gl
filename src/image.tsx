@@ -57,7 +57,7 @@ class Image extends React.Component<Props> {
       map.addImage(id, data, options);
       this.loaded();
     } else if (url) {
-      map.loadImage(url, (error: Error | undefined, image: ImageDataType) => {
+      map.loadImage(url, (error: Error | undefined, image: HTMLImageElement | ImageBitmap | undefined) => {
         if (error) {
           if (onError) {
             onError(error);
@@ -65,8 +65,10 @@ class Image extends React.Component<Props> {
 
           return;
         }
-        map.addImage(id, image, options);
-        this.loaded();
+        if (image) {
+          map.addImage(id, image, options);
+          this.loaded();
+        }
       });
     }
   }
