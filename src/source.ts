@@ -1,5 +1,11 @@
 import * as React from 'react';
-import { Map, GeoJSONSource, GeoJSONSourceRaw, Layer, AnyLayer } from 'mapbox-gl';
+import {
+  Map,
+  GeoJSONSource,
+  GeoJSONSourceRaw,
+  Layer,
+  AnyLayer
+} from 'mapbox-gl';
 import { TilesJson } from './util/types';
 import { withMap } from './context';
 
